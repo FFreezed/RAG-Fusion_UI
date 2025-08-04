@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../RAG-2/.idea/RAG-2.iml" filepath="$PROJECT_DIR$/../RAG-2/.idea/RAG-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RAG-2-UI.iml" filepath="$PROJECT_DIR$/.idea/RAG-2-UI.iml" />
+    </modules>
+  </component>
+</project>

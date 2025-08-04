@@ -1,0 +1,7 @@
+streamlit
+pandas
+python-dotenv
+requests
+langchain
+langchain-openai
+urllib3
