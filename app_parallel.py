@@ -49,32 +49,39 @@ if st.button("Lakukan Pengecekan Hoaks"):
 
             # Menghapus 'col1, col2 = st.columns(2)' dan blok 'with'
 
-            st.subheader("1. Klaim Pengguna")
-            st.write(pipeline_results.get("user_input", "N/A"))
+            # st.subheader("1. Klaim Pengguna")
+            # st.write(pipeline_results.get("user_input", "N/A"))
 
-            st.subheader("2. Kueri yang Dihasilkan")
-            queries = pipeline_results.get("queries", [])
-            if queries:
-                for i, query in enumerate(queries, 1):
-                    st.write(f"- {query}")
-            else:
-                st.write("Tidak ada kueri yang dihasilkan.")
+            # st.subheader("2. Kueri yang Dihasilkan")
+            # queries = pipeline_results.get("queries", [])
+            # if queries:
+            #     for i, query in enumerate(queries, 1):
+            #         st.write(f"- {query}")
+            # else:
+            #     st.write("Tidak ada kueri yang dihasilkan.")
 
-            st.subheader("3. Statistik Pencarian")
-            st.info(f"Total hasil pencarian awal: {pipeline_results.get('search_results_count', 0)}")
+            # st.subheader("3. Statistik Pencarian")
+            # st.info(f"Total hasil pencarian awal: {pipeline_results.get('search_results_count', 0)}")
+            # processed_stats = pipeline_results.get("processed_results", {}).get("stats", {})
+            # st.info(f"Hasil yang diproses (unik): {processed_stats.get('total_processed_results', 0)}")
+            # st.info(f"Konten diekstrak dari URL: {processed_stats.get('urls_extracted_count', 0)}")
 
-            processed_stats = pipeline_results.get("processed_results", {}).get("stats", {})
-            st.info(f"Hasil yang diproses (unik): {processed_stats.get('total_processed_results', 0)}")
-            st.info(f"Konten diekstrak dari URL: {processed_stats.get('urls_extracted_count', 0)}")
-
-            st.subheader("4. Analisis Pengecekan Hoaks")
+            # st.subheader("4. Analisis Pengecekan Hoaks")
+            st.subheader("Analisis Pengecekan Hoaks")
             fact_check_result = pipeline_results.get("fact_check_analysis", {})
             if fact_check_result.get("status") == "success":
                 st.markdown(fact_check_result.get("analysis", "Tidak ada analisis yang dihasilkan."))
             else:
                 st.error(f"Gagal menghasilkan analisis: {fact_check_result.get('analysis', 'Error tidak diketahui.')}")
 
-            st.subheader("5. Sumber Bukti yang Diproses")
+            st.subheader("Statistik Pencarian")
+            st.info(f"Total hasil pencarian awal: {pipeline_results.get('search_results_count', 0)}")
+            processed_stats = pipeline_results.get("processed_results", {}).get("stats", {})
+            st.info(f"Hasil yang diproses (unik): {processed_stats.get('total_processed_results', 0)}")
+            st.info(f"Konten diekstrak dari URL: {processed_stats.get('urls_extracted_count', 0)}")
+
+            # st.subheader("5. Sumber Bukti yang Diproses")
+            st.subheader("Sumber Bukti yang Diproses")
             processed_results = pipeline_results.get("processed_results", {})
             results_data = []
             for res in processed_results.get('results', []):

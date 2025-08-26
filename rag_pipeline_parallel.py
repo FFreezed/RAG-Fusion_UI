@@ -292,33 +292,33 @@ def process_rag_pipeline_parallel(user_input_text, openrouter_api_key, tavily_ap
     try:
         # Langkah 1: Input Pengguna
         results["user_input"] = user_input_text
-        print(f"1. Memproses klaim: {user_input_text}")
+        # print(f"1. Memproses klaim: {user_input_text}")
 
         # Langkah 2: Generasi Kueri
         queries, _ = generate_queries(user_input_text, llm)
         results["queries"] = queries
-        print(f"2. Kueri yang dihasilkan: {queries}")
+        # print(f"2. Kueri yang dihasilkan: {queries}")
 
         # Langkah 3: Pencarian Web Paralel
         search_results = search_tavily_parallel(queries, tavily_api_key,
                                                 "domain/15domain.json")
         results["search_results_count"] = len(search_results.get('results', []))
-        print(f"3. Ditemukan {results['search_results_count']} hasil pencarian awal.")
+        # print(f"3. Ditemukan {results['search_results_count']} hasil pencarian awal.")
 
         # Langkah 4: Proses Hasil Awal
         deduped_results, urls_to_extract, queries_used = process_search_results(search_results)
-        print(
-            f"4. Hasil diproses menjadi {len(deduped_results)} item unik. {len(urls_to_extract)} URL memerlukan ekstraksi konten.")
+        # print(
+        #     f"4. Hasil diproses menjadi {len(deduped_results)} item unik. {len(urls_to_extract)} URL memerlukan ekstraksi konten.")
 
         # Langkah 5: Ekstraksi Konten Paralel & Finalisasi
         processed_results = get_content_and_finalize(deduped_results, urls_to_extract, queries_used, tavily_api_key)
         results["processed_results"] = processed_results
-        print("5. Ekstraksi konten selesai.")
+        # print("5. Ekstraksi konten selesai.")
 
         # Langkah 6: Analisis Pengecekan Fakta
         fact_check_result = generate_fact_check_analysis(user_input_text, processed_results, llm)
         results["fact_check_analysis"] = fact_check_result
-        print("6. Analisis pengecekan fakta selesai.")
+        # print("6. Analisis pengecekan fakta selesai.")
 
         end_time = time.time()
         results["total_time"] = round(end_time - start_time, 2)

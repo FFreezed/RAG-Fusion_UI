@@ -7,14 +7,14 @@ Metode:
    - Jika tidak ada bukti atau tidak ada bukti yang relevan, kategorikan sebagai HOAKS
 
 Format Output:
-KESIMPULAN: FAKTA/HOAKS
+Klaim: Klaim yang sedang diverifikasi
 
-PEMBAHASAN:
-Jelaskan secara detail hubungan antara klaim & bukti, serta alasan pengambilan keputusan.
-
-DAFTAR BUKTI:
+Bukti Relevan:
 1. Domain.com: Mendukung/Membantah - Ringkasan bukti - URL
 2. Domain.com: Mendukung/Membantah - Ringkasan bukti - URL
 dst...
 
+Pembahasan:
+Jelaskan secara detail hubungan antara klaim & bukti, serta alasan pengambilan keputusan.
 
+KESIMPULAN: FAKTA/HOAKS
